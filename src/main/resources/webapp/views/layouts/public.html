@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.springframework.org/schema/data/jaxb"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <!-- Application default -->
+    <th:block th:include="fragments/head::head"></th:block>
+</head>
+
+
+<body>
+
+<div class="wrapper">
+    <div class="main-panel">
+        <!--Navigation-->
+        <th:block th:include="fragments/nav::nav"></th:block>
+
+        <!--Content-->
+        <div layout:fragment="content">
+            <p>Content goes here...</p>
+        </div>
+
+        <!--Footer-->
+        <th:block th:include="fragments/footer::footer"></th:block>
+
+        <div id="about-dialog" style="display: none">
+            <h3>SaMMY@VICINITY</h3>
+            <p>Project all the SaMMY IoT resources have been registered in the VICINITY ecosystem following related information model.</p>
+            <p>This demonstration regards the integration of the SaMMY IoT infrastructure into VICINITY.</p>
+            <p>More information is available at: <a href="https://www.vicinity-h2020.eu/" target="_blank">Vicinity official portal</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Layout-wide scripts-->
+<script type="text/javascript" th:src="@{/webapp/lib/jquery/3.2.1/dist/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webapp/static/vendor/bootstrap/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webapp/static/vendor/bootstrap/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webapp/static/vendor/bootbox/bootbox.min.js}"></script>
+<script type="text/javascript" th:src="@{/webapp/static/js/app.js}"></script>
+
+<!-- Page specific scripts -->
+<th:block layout:fragment="page-scripts"></th:block>
+
+</body>
+
+</html>
+
+

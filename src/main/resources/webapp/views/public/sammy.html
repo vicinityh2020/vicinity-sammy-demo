@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/public}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Page specific -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/webapp/static/vendor/leaflet.awesome-markers/leaflet.awesome-markers.css}" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var REST_SAMMY = [[${REST_SAMMY}]];
+        /*]]>*/
+    </script>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+
+    <div id="map" class="full-screen-map"></div>
+
+
+</th:block>
+
+<th:block layout:fragment="page-scripts">
+    <script type="text/javascript" th:src="@{/webapp/static/js/no-script.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script th:src="@{/webapp/static/vendor/leaflet.awesome-markers/leaflet.awesome-markers.min.js}"></script>
+
+    <script type="text/javascript" th:src="@{/webapp/static/js/public/sammy.js}"></script>
+</th:block>
+</body>
+</html>

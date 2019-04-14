@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.springframework.org/schema/data/jaxb"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head></head>
+
+<body>
+
+<th:block th:fragment="footer">
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <nav>
+                <ul class="footer-menu">
+                    <li>
+                        <a th:href="@{/}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.vicinity-h2020.eu/" target="_blank">
+                            Vicinity Portal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/vicinityh2020/" target="_blank">
+                            Vicinity Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://vicinity.bavenir.eu" target="_blank">
+                            Vicinity Manager App
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.sammyacht.com/" target="_blank">
+                            SaMMYacht
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-center">
+                    &copy; 2019
+                    This demo has received funding from the European Union’s Horizon 2020 Framework Programme
+                </p>
+            </nav>
+        </div>
+    </footer>
+
+
+</th:block>
+
+</body>
+
+</html>

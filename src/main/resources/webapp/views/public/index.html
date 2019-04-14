@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/public}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Page specific -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var REST_ITEMS = [[${REST_ITEMS}]];
+        var REST_ITEM_LOGIN = [[${REST_ITEM_LOGIN}]];
+        var REST_ITEM_QUERY = [[${REST_ITEM_QUERY}]];
+        var APP_REFRESH = [[${APP_REFRESH}]];
+        /*]]>*/
+    </script>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="container-fluid">
+
+                <div class="row" id="items">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</th:block>
+
+<th:block layout:fragment="page-scripts">
+    <script type="text/javascript" th:src="@{/webapp/static/js/no-script.js}"></script>
+    <script type="text/javascript" th:src="@{/webapp/static/vendor/moment.min.js}"></script>
+    
+    <script type="text/javascript" th:src="@{/webapp/static/js/public/index.js}"></script>
+</th:block>
+</body>
+</html>

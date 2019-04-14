@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/public}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Page specific -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/webapp/static/vendor/leaflet.awesome-markers/leaflet.awesome-markers.css}" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var REST_LOG = [[${REST_LOG}]];
+        var LOG_REFRESH = [[${LOG_REFRESH}]];
+        /*]]>*/
+    </script>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="container-fluid">
+
+                <!--gateway-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card stacked-form" id="gateway">
+                            <div class="card-header ">
+                                <h4 class="card-title">Vicinity Gateway API</h4>
+                            </div>
+                            <div class="card-body ">
+                                <div class="refresh-option">
+                                    <input type="checkbox" checked="checked">
+                                    Refresh automatically every <span th:text="${LOG_REFRESH/1000}"></span>s
+                                    <a href="#" class="btn btn-fill btn-info float-right" data-type="gateway"><i class="fa fa-sync"></i> Refresh now</a>
+                                </div>
+
+
+                                <div class="error-log" data-type="gateway">
+                                    <img th:src="@{/webapp/static/img/ajax-loader.gif}" style="margin: auto;">
+                                    <a href="#" class="to-bottom"><i class="fa fa-sort-down"></i> Scroll to bottom</a>
+                                    <div class="scroll" style="font-family: 'Courier New', monospace; font-size: 0.7em; ">
+                                        <!-- Use class bootstrap labels -->
+                                    </div>
+                                    <a href="#" class="to-top"><i class="fa fa-sort-up"></i> Scroll to top</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--adapter-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card stacked-form" id="adapter">
+                            <div class="card-header ">
+                                <h4 class="card-title">Vicinity Adapter</h4>
+                            </div>
+                            <div class="card-body ">
+                                <div class="refresh-option">
+                                    <input type="checkbox" checked="checked">
+                                    Refresh automatically every <span th:text="${LOG_REFRESH/1000}"></span>s
+                                    <a href="#" class="btn btn-fill btn-info float-right" data-type="adapter"><i class="fa fa-sync"></i> Refresh now</a>
+                                </div>
+
+
+                                <div class="error-log" data-type="adapter">
+                                    <img th:src="@{/webapp/static/img/ajax-loader.gif}" style="margin: auto;">
+                                    <a href="#" class="to-bottom"><i class="fa fa-sort-down"></i> Scroll to bottom</a>
+                                    <div class="scroll" style="font-family: 'Courier New', monospace; font-size: 0.7em; ">
+                                        <!-- Use class bootstrap labels -->
+                                    </div>
+                                    <a href="#" class="to-top"><i class="fa fa-sort-up"></i> Scroll to top</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--agent-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card stacked-form" id="agent">
+                            <div class="card-header ">
+                                <h4 class="card-title">Vicinity Agent</h4>
+                            </div>
+                            <div class="card-body ">
+                                <div class="refresh-option">
+                                    <input type="checkbox" checked="checked">
+                                    Refresh automatically every <span th:text="${LOG_REFRESH/1000}"></span>s
+                                    <a href="#" class="btn btn-fill btn-info float-right" data-type="agent"><i class="fa fa-sync"></i> Refresh now</a>
+                                </div>
+
+
+                                <div class="error-log" data-type="agent">
+                                    <img th:src="@{/webapp/static/img/ajax-loader.gif}" style="margin: auto;">
+                                    <a href="#" class="to-bottom"><i class="fa fa-sort-down"></i> Scroll to bottom</a>
+                                    <div class="scroll" style="font-family: 'Courier New', monospace; font-size: 0.7em; ">
+                                        <!-- Use class bootstrap labels -->
+                                    </div>
+                                    <a href="#" class="to-top"><i class="fa fa-sort-up"></i> Scroll to top</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--demo-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card stacked-form" id="demo">
+                            <div class="card-header ">
+                                <h4 class="card-title">Vicinity/SaMMY integration demo</h4>
+                            </div>
+                            <div class="card-body ">
+                                <div class="refresh-option">
+                                    <input type="checkbox" checked="checked">
+                                    Refresh automatically every <span th:text="${LOG_REFRESH/1000}"></span>s
+                                    <a href="#" class="btn btn-fill btn-info float-right" data-type="demo"><i class="fa fa-sync"></i> Refresh now</a>
+                                </div>
+
+
+                                <div class="error-log" data-type="demo">
+                                    <img th:src="@{/webapp/static/img/ajax-loader.gif}" style="margin: auto;">
+                                    <a href="#" class="to-bottom"><i class="fa fa-sort-down"></i> Scroll to bottom</a>
+                                    <div class="scroll" style="font-family: 'Courier New', monospace; font-size: 0.7em; ">
+                                        <!-- Use class bootstrap labels -->
+                                    </div>
+                                    <a href="#" class="to-top"><i class="fa fa-sort-up"></i> Scroll to top</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</th:block>
+
+<th:block layout:fragment="page-scripts">
+    <script type="text/javascript" th:src="@{/webapp/static/js/no-script.js}"></script>
+    <script th:src="@{/webapp/lib/bootstrap-checkbox/1.2.5/dist/js/bootstrap-checkbox.min.js}"></script>
+
+    <script type="text/javascript" th:src="@{/webapp/static/js/public/system.js}"></script>
+</th:block>
+</body>
+</html>
